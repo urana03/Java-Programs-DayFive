@@ -1,6 +1,5 @@
 package com.bridgelabz.dayfive;
 import java.util.Scanner;
-import java.util.Random;
 
 public class FlipCoin {
 
@@ -9,30 +8,29 @@ public class FlipCoin {
 		Scanner scan = new Scanner(System.in);
 		System.out.print("Enter the number of times to flip: ");
 		int n = scan.nextInt();
+		double ran = 0.0;
+		int count=1;
 		
 		
-		int percentHeads;
-		int percentTails;
+		int heads = 0;//for head;
+		int tails = 0;//for tail;
 		
-		int count1 = 0;//for head;
-		int count2 = 0;//for tail;
-		
-		for(int i=1; i<=n; i++) {
-			Random  ran = new Random();
-			int check = ran.nextInt(2);
+		while(count <= n) {
+			ran = Math.random();
+			System.out.println(ran);
 			
-			if(check == 1) {
-				count1= count1 + 1;
+			if(ran>0.5) {
+				tails++;
 			}
 			else {
-				count2= count2 + 1;
+				heads++;
 			}
 			
-			
+			count++; 
 		}
-		percentHeads = (count1/n)*100;
+	 double	percentHeads = (double)(heads/n)*100;
 		
-		percentTails = (count2/n)*100;
+	 double	percentTails = (double)(tails/n)*100;
 		
 		System.out.println("Percentage of Heads: "+percentHeads);
 		System.out.println("Percentage of Tails: "+percentTails);
